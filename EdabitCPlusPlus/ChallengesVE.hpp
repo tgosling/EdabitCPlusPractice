@@ -1,4 +1,7 @@
 #pragma once
+#include <string>
+#include <array>
+#include <iostream>
 /* Method Name: additon
        Purpose: adds two ints
 	   Accepts: int a, int b
@@ -45,7 +48,71 @@ bool lessThanOrEqualToZero(int num)
 	else
 		return false;
 }
+/* Method Name: ProfitableGamble
+	   Purpose: determine if the prize is worth the pay out
+	   Accepts: float f, int prize, int pay
+	   Returns: bool           */
+bool profitableGamble(float f, int prize, int pay)
+{
+	if (f * prize > pay)
+		return true;
+	else
+		return false;
+}
+
+/* Method Name: checkRemainder
+	   Purpose: check the reaminder of a number divided by another number through modulus division
+	   Accepts: int x, int y
+	   Returns: int                           */
+int checkRemainder(int x, int y)
+{
+	return x % y;
+}
+/* Method Name: timeForMilkandCookies 
+	   Purpose: check if the date is christmas eve
+	   Accepts: int year, int month, int day
+	   Returns: bool                           */
+bool timeForMilkandCookies(int year, int month, int day)
+{
+	if (month == 11 && day == 24)
+		return true;
+	else
+		return false;
+}
+/* Method Name: isEmpty
+	   Purpose: checks if a string if empty
+	   Accepts: string str
+	   Returns: bool                           */
+bool isEmpty(std::string str)
+{
+	if (str.empty())
+		return true;
+	else
+		return false;
+}
+/* Method Name: equalsSlices
+	   Purpose: determine if there is enough pie for all
+	   Accepts: int slices, int people, int slicesPer
+	   Returns: bool                           */
+bool equalSlices(int slices, int people, int slicesPer)
+{
+	if (slicesPer * people <= slices)
+		return true;
+	else
+		return false;
+}
+/* Method Name: getLastItem
+	   Purpose: get the last item in an int array
+	   Accepts: int array[]
+	   Returns: int                           */
+int getLastItem(int arr[])
+{
+	int hold = sizeof(arr) / sizeof(*arr);
+	int hold2 = sizeof(arr) / sizeof(arr[0]);
+	return arr[(sizeof(arr)/sizeof(0))+1];
+}
+
 /* Method Name:
-	   Purpose:
-	   Accepts:
-	   Returns:            */
+	   Purpose: 
+	   Accepts: 
+	   Returns:                            */
