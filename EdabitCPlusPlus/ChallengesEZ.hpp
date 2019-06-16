@@ -36,6 +36,29 @@ std::vector<std::string> identicalFilter(std::vector<std::string> arr) {
 	return hold;
 }
 
+/* Method Name: stringPartitionN
+	   Purpose: divide a string based on N-value
+	   Accepts: string s, int n
+	   Returns: vector<string>      */
+std::vector<std::string> stringPartitionN(std::string s, int n)
+{
+	//variables
+	std::vector<std::string> vHold;
+	std::string strHold;
+
+	//loop through word
+	for (int i = 0; i < s.length(); i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			strHold += s[i];
+		}
+		vHold.push_back(strHold);
+		strHold = "";
+	}
+	return vHold;
+}
+
 
 /* Method Name:
 	   Purpose:
