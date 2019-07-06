@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <array>
+#include <vector>
 #include <iostream>
+
 /* Method Name: additon
        Purpose: adds two ints
 	   Accepts: int a, int b
@@ -112,7 +114,85 @@ int getLastItem(int arr[])
 	return arr[(sizeof(arr)/sizeof(0))+1];
 }
 
-/* Method Name:
-	   Purpose: 
-	   Accepts: 
-	   Returns:                            */
+/* Method Name: concatName
+	   Purpose: Concatenate first name and last name into one
+	   Accepts: string fName, string lName
+	   Returns: string                           */
+std::string concatName(std::string fName, std::string lName)
+{
+	return lName + ", " + fName;
+}
+
+
+/* Method Name: monthName
+	   Purpose: return month name with given number
+	   Accepts: int monthNum
+	   Returns: string mName                           */
+std::string monthName(int num)
+{
+	std::string months[] = { "January", "February", "March", "April", "May", "June", " July",
+						"August", "September", "October", "November", "December" };
+	return months[num -1];
+}
+
+/* Method Name: existsHigher
+	   Purpose: check is a number exists that is higher than the control numbers
+	   Accepts: vector<int> v, int n
+	   Returns: bool                            */
+bool existsHigher(std::vector<int> v, int n)
+{
+	for (int i = 0; i < v.size(); i++)
+	{
+		if (v[i] > n)
+			return true;
+	}
+	return false;
+}
+
+
+/* Method Name: charToAscii
+	   Purpose: convert char to ascii value
+	   Accepts: char c
+	   Returns: int */
+int charToAscii(char c)
+{
+	return (int)c;
+}
+
+/* Method Name: divisibleBy100
+	   Purpose: check if number is divisible By 100
+	   Accepts: int n
+	   Returns: bool */
+bool divBy100(int n)
+{
+	if (n % 100 == 0)
+		return true;
+	else
+		return false;
+
+}
+
+/* Method Name: hyphenMaker
+	   Purpose: creates a string with the given amount of hyphens
+	   Accepts: int n
+	   Returns: string */
+std::string hyphenMaker(int n)
+{
+	std::string hold;
+	if (n > 0 && n <= 60)
+	{
+		for (int i = 0; i < n; i++)
+			hold += "-";
+	}
+	return hold;
+}
+
+/* Method Name: 
+	   Purpose:
+	   Accepts:
+	   Returns: */
+
+
+
+
+
