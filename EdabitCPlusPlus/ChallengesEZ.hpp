@@ -3,6 +3,9 @@
 #include <array>
 #include <vector>
 #include <iostream>
+#include <algorithm>
+#include <numeric>
+#include <regex>
 
 
 /* Method Name: identicalFilter
@@ -65,95 +68,20 @@ std::vector<std::string> stringPartitionN(std::string s, int n) {
 	   Purpose: determines the minimum value, max value, length of array and average value
 	   Accepts: vector<float> arr
 	   Returns: vector<float> arr*/
-//std::vector<double> minMaxLengthAvg(std::vector<double> arr)
-//{
+std::vector<double> minMaxLengthAvg(std::vector<double> &arr)
+{
 	//variables
-	//std::vector<double> vHold;
-	
-
-	//vHold[0] = std::min_element(vHold.begin, vHold.end);
-	//vHold[1] = std::min_element(vHold.begin, vHold.end);
-	
-
-	//for (std::vector<double>::iterator it = arr.begin; it != arr.end; it++)
-	//{
-		//vHold[2] += *it;
-	//}
-
-	//vHold[3] = vHold[2] / arr.size();
-
-
-	//return vHold;
-//}
-
-#pragma region Print Vectors
-//void printVec(std::vector<double> &vec)
-//{
-//	for (std::vector<double>::iterator it = vec.begin; it != vec.end; ++it)
-//	{
-//		cout << *it << ", ";
-//	}
-//}
-
-//void printVec(std::vector<string> &vec)
-//{
-//	for (std::vector<string>::iterator it = vec.begin; it != vec.end; ++it)
-//	{
-//		cout << *it << ", ";
-//	}
-//}
-
-
-/* Method Name: printVecDbl 
-	   Purpose: print vectors of double type
-	   Accepts: std::vector<double> const &vec
-	   Returns:	void		*/
-void printVec(std::vector<double> const &vec) {
-	//Range for 
-	/*for (auto const& i : vec)
-		std::cout << i << ", ";*/
-
-	//for_each
-	/*std::for_each(vec.begin(),
-		vec.end(),
-		[](const auto &i) {
-		std::cout << i << ", ";
-	});*/
-
-	//Iterator
-	for (std::vector<double>::const_iterator it = vec.cbegin(); it != vec.cend(); ++it)
-		std::cout << *it << ", ";
+	std::vector<double> vHold = { 0,0,0,0 };
+	//min & max
+	vHold[0] = *std::min_element(arr.begin(), arr.end());
+	vHold[1] = *std::max_element(arr.begin(), arr.end());
+	//Accumulate
+	vHold[2] = arr.size();
+	vHold[3] = std::accumulate(arr.begin(), arr.end(), 0.0) / arr.size();
+	return vHold;
 }
 
-void printVec(std::vector<std::string> const &vec) {
-	//Iterator
-	for (std::vector<std::string>::const_iterator it = vec.cbegin(); it != vec.cend(); ++it)
-		std::cout << *it << ", ";
-}
 
-/* Method Name: printVecOS
-	   Purpose: overload << for printing vector
-	   Accepts: 
-	   Returns:			*/
-std::ostream& operator<< (std::ostream& os, const std::vector<double> &vec){
-	for (auto const& i : vec)
-		os << i << " ";
-	return os;
-}
-
-/* Method Name: getExtension
-	   Purpose: get file extensions from vector of string
-	   Accepts: vector<std::string> vec
-	   Returns:	vector<std::string> res		*/
-//std::vector<string> getExtension(std::vector<string> &vec) {
-//	std::vector<string> hold;
-//	for_each(vec.begin(), vec.end(), [&](const string s) {
-//		hold.push_back(s.substr(s.find('.') + 1)); 
-//	});
-//	return hold;
-//}
-
-#pragma endregion Print Vectors
 
 std::vector<std::string> getExtension(std::vector<std::string> &vec)
 {
@@ -170,6 +98,43 @@ std::vector<std::string> getExtension(std::vector<std::string> &vec)
 	}
 	return holdVec;
 }
+
+/* Method Name: checkPalindrome
+	   Purpose: checks to see if a word is the same forward and backward
+	   Accepts: string str
+	   Returns:	bool		*/
+bool checkPalindrome(std::string str) {
+	std::string hold = str;
+	std::reverse(str.begin(), str.end());
+	if (hold == str)
+		return true;
+	else
+		return false;
+}
+
+/* Method Name: printChar
+	   Purpose: prints a sequential char 
+	   Accepts: int n, char ch
+	   Returns:	void		*/
+void printChar(int n, char ch){
+	for (int i = 0; i < n; ++i)
+		 std::cout << ch;
+}
+
+/* Method Name: removeVowels
+	   Purpose: remove vowels from a string, Y not included
+	   Accepts: string str
+	   Returns:	string		*/
+std::string removeVowels(std::string str) {
+	return std::regex_replace(str, std::regex("[aeiouAEIOU]"), std::string(""));
+}
+
+/* Method Name: minMax
+	   Purpose:
+	   Accepts:
+	   Returns:			*/
+
+
 
 /* Method Name:
 	   Purpose:

@@ -4,6 +4,7 @@
 //Headers
 #include "ChallengesVE.hpp"
 #include "ChallengesEZ.hpp"
+#include "printVector.hpp"
 //Libraries
 #include <iostream>
 #include <string>
@@ -16,7 +17,7 @@ int main()
 	//Variables for tests
 	int a = 5, b = 4, c = 0;
 	float f1 = 0.2;
-	string str1 = "", str2 = "Break free";
+	string str1 = "", str2 = "Break free", strPal = "mom";
 	int arr1[] = { 1,2,3 }, arr2[] = { 23,45,67,89 };
 	vector<int> v = { 10,12,13,22,1 };
 	vector<double> vDbl = { 11.1, 12, 112, 99 };
@@ -24,9 +25,12 @@ int main()
 
 	//Tests
 	std::cout << "Hello World!" << endl;
-	cout << "------------Edabit Very Easy Challenges---------------" << endl;
+	//VERY EASY
+	printChar(10, '-');
+	cout << "Edabit Very Easy Challenges";
+	printChar(10, '-');
 
-	cout << "Addition: 5 + 9 = ";	
+	cout << "\nAddition: 5 + 9 = ";	
 	c = addition(a, b);
 	cout << c;
 	cout << "\nIncrement by 1: " << incrementByOne(c) << endl;
@@ -44,23 +48,42 @@ int main()
 	cout << "Tyler Gosling concat: " << concatName("Tyler", "Gosling") << endl;
 	cout << "What month the 3rd month? " << monthName(3) << endl;
 	cout << "is there a nubmer higher than 14 in the vector? " << existsHigher(v, 23) << endl;
-	cout << "------------Edabit Easy Challenges---------------" << endl;
-	cout << "Break chew up into 2 even groups:\t";
+	cout << endl;
+	//EASY
+	printChar(10, '-');
+	cout << "Edabit Easy Challenges";
+	printChar(10, '-');
+	cout << "\nBreak chew up into 2 even groups:\t";
 	vector<string> stringN = stringPartitionN("chew", 2);
 	for (vector<string>::const_iterator i = stringN.begin(); i != stringN.end(); ++i)
 	{
 		cout << *i << ", ";
 	}
 	cout << endl;
-	printVec(vDbl);
+	//printVec(vDbl);
 	//printVec(stringN);
 
-	//vector<double> minMaxAvgVec = minMaxLengthAvg(vDbl);
+	vector<double> minMaxAvgVec = minMaxLengthAvg(vDbl);
 	
 	cout << "\nVector contents: " << vDbl << endl;
-	
+	cout << "Vector Min value: " << minMaxAvgVec[0] << endl;
+	cout << "Vector Max value: " << minMaxAvgVec[1] << endl;
+	cout << "Vector length: " << minMaxAvgVec[2] << endl;
+	cout << "Vector Average: " << minMaxAvgVec[3] << endl;
+
 	vector<string> fExtensions = getExtension(fileExt);
 	printVec(fExtensions);
-	
+	cout << "\nmom is a palindrome: " << checkPalindrome(strPal) << endl;
+	cout << "megatron is a palindrome: " << checkPalindrome("stepmom") << endl;
+	cout << "megatron without vowels: " << removeVowels("megatron") << endl;
+
+
+
+
+
+	//END
+	cout << endl;
+	printChar(20, '*');
 	cout << "\nEnd of Challenges" << endl;
+	printChar(20, '*');
 }
