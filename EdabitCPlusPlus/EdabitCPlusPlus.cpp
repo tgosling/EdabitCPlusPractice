@@ -77,8 +77,14 @@ int main()
 	cout << "megatron is a palindrome: " << checkPalindrome("stepmom") << endl;
 	cout << "megatron without vowels: " << removeVowels("megatron") << endl;
 
-
-
+	cout << "\nVector contents "  << endl;
+	printVec(v);
+	cout << "\nVector shifted left 3 times: ";
+	v = leftShift(v, 3);
+	printVec(v);
+	cout << "\nVector shifted right 2 times: ";
+	v = rightShift(v, 2);
+	printVec(v);
 
 
 	//END

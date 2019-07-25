@@ -18,16 +18,13 @@ std::vector<std::string> identicalFilter(std::vector<std::string> arr) {
 	bool isIdent;
 	char testCh;
 	//loop through vector contents
-	for (int i = 0; i < arr.size(); i++)
-	{
+	for (int i = 0; i < arr.size(); i++) {
 		isIdent = true;
 		//assign first value in number to test
 		testCh = arr[i][0];
 		//loop through number values
-		for (int j = 0; j < arr[i].size(); j++)
-		{
-			if (testCh != arr[i][j])
-			{
+		for (int j = 0; j < arr[i].size(); j++){
+			if (testCh != arr[i][j]){
 				isIdent = false;
 				break;
 			}
@@ -49,16 +46,12 @@ std::vector<std::string> stringPartitionN(std::string s, int n) {
 	std::string strHold;
 
 	//loop through word
-	for (int i = 0; i < s.length(); ++i)
-	{
-		for (int j = 0; j < n; j++)
-		{
+	for (int i = 0; i < s.length(); ++i){
+		for (int j = 0; j < n; j++){
 			strHold += s[i+j];
 		}
-
 		vHold.push_back(strHold);
 		strHold = "";
-		
 	}
 	return vHold;
 }
@@ -81,8 +74,10 @@ std::vector<double> minMaxLengthAvg(std::vector<double> &arr)
 	return vHold;
 }
 
-
-
+/* Method Name: getExtension
+	   Purpose: get the extension type for the given string in a vector
+	   Accepts: vector<string> vec
+	   Returns:	vector<strig>		*/
 std::vector<std::string> getExtension(std::vector<std::string> &vec)
 {
 	std::vector<std::string> holdVec;
@@ -129,12 +124,30 @@ std::string removeVowels(std::string str) {
 	return std::regex_replace(str, std::regex("[aeiouAEIOU]"), std::string(""));
 }
 
-/* Method Name: minMax
-	   Purpose:
-	   Accepts:
-	   Returns:			*/
-
-
+/* Method Name: leftShift
+	   Purpose: left shift the vector the number of times given
+	   Accepts: vector<int> vec, int num 
+	   Returns:	vector<int>		*/
+std::vector<int> leftShift(std::vector<int> vec, int num){
+	for (int i = 0; i < num; i++) {
+		int temp = vec[0];
+		vec.erase(vec.begin());
+		vec.push_back(temp);
+	}
+	return vec;
+}
+/* Method Name: rightShift
+	   Purpose: right shift the vector the number of times given
+	   Accepts: vector<int> vec, int num 
+	   Returns:	vector<int>		*/
+std::vector<int> rightShift(std::vector<int> vec, int num) {
+	for (int i = 0; i < num; i++) {
+		int temp = vec[vec.size() -1];
+		vec.pop_back();
+		vec.insert(vec.begin(), temp);
+	}
+	return vec;
+}
 
 /* Method Name:
 	   Purpose:
