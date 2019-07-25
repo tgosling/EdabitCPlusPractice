@@ -149,6 +149,21 @@ std::vector<int> rightShift(std::vector<int> vec, int num) {
 	return vec;
 }
 
+/* Method Name: formatPhoneNumber
+	   Purpose: format a vector into a phone number string
+	   Accepts: vector<int> vec
+	   Returns: string str			*/
+std::string formatPhoneNumber(std::vector<int> vec) {
+	std::string str;
+	str.reserve(16);
+	for (auto n : vec)
+		str.append(std::to_string(n));
+	str.insert(0, "(");
+	str.insert(4, ")");
+	str.insert(5, " ");
+	str.insert(9, "-");
+	return str;
+}
 /* Method Name:
 	   Purpose:
 	   Accepts:

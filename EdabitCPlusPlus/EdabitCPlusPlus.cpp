@@ -19,7 +19,7 @@ int main()
 	float f1 = 0.2;
 	string str1 = "", str2 = "Break free", strPal = "mom";
 	int arr1[] = { 1,2,3 }, arr2[] = { 23,45,67,89 };
-	vector<int> v = { 10,12,13,22,1 };
+	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 };
 	vector<double> vDbl = { 11.1, 12, 112, 99 };
 	vector<string> fileExt = { "array.html", "marker.exe", "website.css" };
 
@@ -85,10 +85,12 @@ int main()
 	cout << "\nVector shifted right 2 times: ";
 	v = rightShift(v, 2);
 	printVec(v);
-
+	
+	cout << "\nPhone Number: " << formatPhoneNumber(phone) << endl;
+	
 
 	//END
-	cout << endl;
+	cout << "\n" << endl;
 	printChar(20, '*');
 	cout << "\nEnd of Challenges" << endl;
 	printChar(20, '*');
