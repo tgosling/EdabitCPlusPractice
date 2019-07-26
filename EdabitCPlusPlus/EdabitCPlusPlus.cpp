@@ -87,7 +87,23 @@ int main()
 	printVec(v);
 	
 	cout << "\nPhone Number: " << formatPhoneNumber(phone) << endl;
-	
+	cout << "Is Nemo in this sentence? " << endl;
+	cout << findNemo("Is Nemo in this sentence? ") << endl;
+	cout << "wave check this sentence? " << endl;
+	vector<string> waveCheck;
+	waveCheck = findWord("wave", "wave check this sentence? ");
+	printVec(waveCheck);
+	cout << "\nCheck: This is not a drill This is not a drill " << endl;
+	vector<string> drillCheck;
+	drillCheck = findWord("drill", "This is not a drill This is not a drill ");
+	printVec(drillCheck);
+	cout << "\nCartesian coordinates:  ";
+	map<int, int> mapA = convertCartesian(v, v);
+	printMap(mapA);
+
+
+
+
 
 	//END
 	cout << "\n" << endl;

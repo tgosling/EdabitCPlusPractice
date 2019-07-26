@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <ostream>
+#include <map>
 
 //void printVec(std::vector<double> &vec)
 //{
@@ -42,11 +43,20 @@ void printVec(std::vector<double> const &vec) {
 		std::cout << *it << ", ";
 }
 
+void printVec(std::vector<int> const &vec) {
+		//Iterator
+	for (std::vector<int>::const_iterator it = vec.cbegin(); it != vec.cend(); ++it)
+		std::cout << *it << ", ";
+}
+
 
 void printVec(std::vector<std::string> const &vec) {
 	//Iterator
 	//for (std::vector<std::string>::const_iterator it = vec.cbegin(); it != vec.cend(); ++it)
 		//std::cout << *it << ", ";
+	//Range for 
+	for (auto const& i : vec)
+		std::cout << i << ", ";
 }
 
 /* Method Name: printVecOS
@@ -57,5 +67,14 @@ std::ostream& operator<< (std::ostream& os, const std::vector<double> &vec) {
 	for (auto const& i : vec)
 		os << i << " ";
 	return os;
+}
+
+/* Method Name: printMap
+	   Purpose: 
+	   Accepts:
+	   Returns:			*/
+void printMap(std::map<int, int> mapA) {
+	for (auto& m : mapA)
+		std::cout << "[" + m.first << ", " << m.second + "], ";
 }
 

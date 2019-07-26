@@ -6,6 +6,8 @@
 #include <algorithm>
 #include <numeric>
 #include <regex>
+#include <map>
+#include <utility>
 
 
 /* Method Name: identicalFilter
@@ -164,6 +166,80 @@ std::string formatPhoneNumber(std::vector<int> vec) {
 	str.insert(9, "-");
 	return str;
 }
+
+/* Method Name: findNemo
+	   Purpose: find the word Nemo in a sentence
+	   Accepts: string sentence
+	   Returns:	std::string		*/
+std::string findNemo(std::string sentence) {
+	//Variables
+	std::vector<std::string> words;
+	std::string word = "";
+	int in = 1;
+	//Find word in sentence and add it to words
+	for (char i : sentence) {
+		if (i == ' ') {
+			words.push_back(word);
+			word = "";
+		}
+		else
+			word += i;
+	}
+	//Check for nemo in words
+	for (std::string word : words) {
+		if (word == "Nemo")
+			return "I found Nemo at " + std::to_string(in) + "!";
+		++in;
+	}
+}
+
+/* Method Name: findWord
+	   Purpose: find a given word from a string
+	   Accepts: string word, string sentence
+	   Returns:	vector<string> 		*/
+std::vector<std::string> findWord(std::string word, std::string sentence) {
+	//variables
+	std::vector<std::string> words;
+	std::string wordHold = "";
+	std::vector<std::string> wordFound;
+	int at = 1;
+	//find words in setence
+	for (char i : sentence) {
+		if (i == ' ') {
+			words.push_back(wordHold);
+			wordHold = "";
+		}
+		else
+			wordHold += i;
+	}
+	//check for word in words
+	for (std::string str : words) {
+		if (str == word)
+			wordFound.push_back("The word, " + word + " was found at " + std::to_string(at) + "!");
+		at++;
+	}
+	if (wordFound.empty())
+		 wordFound.push_back("The word, " + word + " was not found at all");
+	return wordFound;
+}
+
+/* Method Name: convertCartesian
+	   Purpose: convert two vectors into cartesian coordinate pairs
+	   Accepts: vector<int> x, vector<int> y
+	   Returns:	map		*/
+std::map<int, int>  convertCartesian(std::vector<int> x, std::vector<int> y) {
+	std::map<int, int> coords ;
+	if (x.size() == y.size()) {
+		for(auto val : x){
+			std::pair<int,int> cCoord = std::make_pair(x[val],y[val]);
+			coords.emplace(cCoord);
+		}
+	}else
+		std::cout << "Vectors do not have the same amout of coordinates\n";
+
+	return coords;
+}
+
 /* Method Name:
 	   Purpose:
 	   Accepts:
