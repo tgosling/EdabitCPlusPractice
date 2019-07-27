@@ -226,12 +226,12 @@ std::vector<std::string> findWord(std::string word, std::string sentence) {
 /* Method Name: convertCartesian
 	   Purpose: convert two vectors into cartesian coordinate pairs
 	   Accepts: vector<int> x, vector<int> y
-	   Returns:	map		*/
+	   Returns:	map<int, int>		*/
 std::map<int, int>  convertCartesian(std::vector<int> x, std::vector<int> y) {
 	std::map<int, int> coords ;
 	if (x.size() == y.size()) {
-		for(auto val : x){
-			std::pair<int,int> cCoord = std::make_pair(x[val],y[val]);
+		for(int i = 0; i < x.size(); ++i){
+			std::pair<int,int> cCoord = std::make_pair(x[i],y[i]);
 			coords.emplace(cCoord);
 		}
 	}else
@@ -239,6 +239,19 @@ std::map<int, int>  convertCartesian(std::vector<int> x, std::vector<int> y) {
 
 	return coords;
 }
+
+/* Method Name: convertCartesianVec
+	   Purpose: convert two vectors into cartesian coordinate vector of vectors
+	   Accepts: vector<int> x, vector<int> y
+	   Returns: vector<vector<int>>			*/
+std::vector<std::vector<int>> convertCartesianVec(std::vector<int> x, std::vector<int> y) {
+	std::vector<std::vector <int>> hold;
+	for (int i = 0; i < x.size(); ++i) {
+		hold.push_back({ x[i],y[i] });
+	}
+	return hold;
+}
+
 
 /* Method Name:
 	   Purpose:

@@ -49,6 +49,7 @@ int main()
 	cout << "What month the 3rd month? " << monthName(3) << endl;
 	cout << "is there a nubmer higher than 14 in the vector? " << existsHigher(v, 23) << endl;
 	cout << endl;
+
 	//EASY
 	printChar(10, '-');
 	cout << "Edabit Easy Challenges";
@@ -99,10 +100,15 @@ int main()
 	printVec(drillCheck);
 	cout << "\nCartesian coordinates:  ";
 	map<int, int> mapA = convertCartesian(v, v);
+	//for (auto x : mapA)
+		//cout << "[" << x.first << ", " << x.second << "] ";
+	vector<int> v3 = { 9,2,3,4,5 };
 	printMap(mapA);
-
-
-
+	cout << "\nCartesian coordinates:  ";
+	map<int, int> mapB = convertCartesian(v3, v);
+	printMap(mapB);
+	//for (auto x : mapB)
+		//cout << "[" << x.first << ", " << x.second << "] ";
 
 
 	//END

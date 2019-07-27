@@ -69,12 +69,20 @@ std::ostream& operator<< (std::ostream& os, const std::vector<double> &vec) {
 	return os;
 }
 
+/* Method Name: printVecVec
+	   Purpose: printVector of Vectors
+	   Accepts: 
+	   Returns:			*/
+void printVecVec(std::vector<std::vector<int>>) {
+
+}
+
 /* Method Name: printMap
 	   Purpose: 
 	   Accepts:
 	   Returns:			*/
 void printMap(std::map<int, int> mapA) {
-	for (auto& m : mapA)
-		std::cout << "[" + m.first << ", " << m.second + "], ";
+	for (auto x : mapA)
+		std::cout << "[" << x.first << ", " << x.second << "] ";
 }
 
