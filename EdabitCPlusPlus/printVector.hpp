@@ -73,8 +73,16 @@ std::ostream& operator<< (std::ostream& os, const std::vector<double> &vec) {
 	   Purpose: printVector of Vectors
 	   Accepts: 
 	   Returns:			*/
-void printVecVec(std::vector<std::vector<int>>) {
-
+void printCartVec(std::vector<std::vector<int>> vec) {
+	for (int i = 0; i < vec.size(); ++i){
+		for (int j = 0; j < vec[i].size(); ++j) {
+			if (j % 2 != 0)
+				std::cout << vec[i][j];
+			else
+				std::cout << "[ " << vec[i][j] << ", ";
+		}
+		std::cout << "] ";
+	}
 }
 
 /* Method Name: printMap

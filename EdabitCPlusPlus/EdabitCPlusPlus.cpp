@@ -21,7 +21,7 @@ int main()
 	int arr1[] = { 1,2,3 }, arr2[] = { 23,45,67,89 };
 	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 };
 	vector<double> vDbl = { 11.1, 12, 112, 99 };
-	vector<string> fileExt = { "array.html", "marker.exe", "website.css" };
+	vector<string> fileExt = { "array.html", "marker.exe", "website.css", "oscar.win" };
 
 	//Tests
 	std::cout << "Hello World!" << endl;
@@ -98,19 +98,26 @@ int main()
 	vector<string> drillCheck;
 	drillCheck = findWord("drill", "This is not a drill This is not a drill ");
 	printVec(drillCheck);
-	cout << "\nCartesian coordinates:  ";
+	cout << "\nCartesian coordinates Map A:  ";
 	map<int, int> mapA = convertCartesian(v, v);
 	//for (auto x : mapA)
 		//cout << "[" << x.first << ", " << x.second << "] ";
 	vector<int> v3 = { 9,2,3,4,5 };
 	printMap(mapA);
-	cout << "\nCartesian coordinates:  ";
+	cout << "\nCartesian coordinates Map B:  ";
 	map<int, int> mapB = convertCartesian(v3, v);
 	printMap(mapB);
 	//for (auto x : mapB)
 		//cout << "[" << x.first << ", " << x.second << "] ";
-
-
+	cout << "\nCartesian coordinates Vector of Vectors:  ";
+	vector<vector<int>> cartVec = convertCartesianVec(v3, v);
+	printCartVec(cartVec);
+	cout << "\nSorted file Extensions: ";
+	
+	vector<string> sortedNames;
+	vector<string> namesVec = { "oscar", "mike", "Taylor", "Tom" };
+	sortedNames = sortVecStrByLength(namesVec);
+	printVec(sortedNames);
 	//END
 	cout << "\n" << endl;
 	printChar(20, '*');

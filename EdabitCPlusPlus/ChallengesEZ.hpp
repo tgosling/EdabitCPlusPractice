@@ -252,6 +252,22 @@ std::vector<std::vector<int>> convertCartesianVec(std::vector<int> x, std::vecto
 	return hold;
 }
 
+/* Method Name: sortStrBySize
+	   Purpose: to sort two strings by size
+	   Accepts: string a, atring b
+	   Returns:	bool		*/
+bool sortStrBySize(std::string a, std::string b) {
+	return a.length() < b.length();
+}
+
+/* Method Name: sortVecStringByLength
+	   Purpose: to sort a vector of strings by length
+	   Accepts: vector<string> vec
+	   Returns:	vector<string>		*/
+std::vector<std::string> sortVecStrByLength(std::vector<std::string> arr) {
+	std::sort(arr.begin(), arr.end(), sortStrBySize);
+	return arr;
+}
 
 /* Method Name:
 	   Purpose:
