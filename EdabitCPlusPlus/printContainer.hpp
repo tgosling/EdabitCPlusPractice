@@ -85,11 +85,11 @@ void printCartVec(std::vector<std::vector<int>> vec) {
 	}
 }
 
-/* Method Name: printMap
+/* Method Name: printCartMap
 	   Purpose: 
 	   Accepts:
 	   Returns:			*/
-void printMap(std::map<int, int> mapA) {
+void printCartMap(std::map<int, int> mapA) {
 	for (auto x : mapA)
 		std::cout << "[" << x.first << ", " << x.second << "] ";
 }

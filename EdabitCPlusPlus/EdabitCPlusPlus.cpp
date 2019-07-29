@@ -4,7 +4,7 @@
 //Headers
 #include "ChallengesVE.hpp"
 #include "ChallengesEZ.hpp"
-#include "printVector.hpp"
+#include "printContainer.hpp"
 //Libraries
 #include <iostream>
 #include <string>
@@ -103,10 +103,10 @@ int main()
 	//for (auto x : mapA)
 		//cout << "[" << x.first << ", " << x.second << "] ";
 	vector<int> v3 = { 9,2,3,4,5 };
-	printMap(mapA);
+	printCartMap(mapA);
 	cout << "\nCartesian coordinates Map B:  ";
 	map<int, int> mapB = convertCartesian(v3, v);
-	printMap(mapB);
+	printCartMap(mapB);
 	//for (auto x : mapB)
 		//cout << "[" << x.first << ", " << x.second << "] ";
 	cout << "\nCartesian coordinates Vector of Vectors:  ";
