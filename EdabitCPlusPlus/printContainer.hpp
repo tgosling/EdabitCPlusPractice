@@ -5,21 +5,15 @@
 #include <ostream>
 #include <map>
 
-//void printVec(std::vector<double> &vec)
-//{
-//	for (std::vector<double>::iterator it = vec.begin; it != vec.end; ++it)
-//	{
-//		cout << *it << ", ";
-//	}
-//}
 
-//void printVec(std::vector<string> &vec)
-//{
-//	for (std::vector<string>::iterator it = vec.begin; it != vec.end; ++it)
-//	{
-//		cout << *it << ", ";
-//	}
-//}
+/* Method Name: printChar
+	   Purpose: prints a sequential char
+	   Accepts: int n, char ch
+	   Returns:	void		*/
+void printChar(int n, char ch) {
+	for (int i = 0; i < n; ++i)
+		std::cout << ch;
+}
 
 
 /* Method Name: printVecDbl
@@ -57,6 +51,17 @@ void printVec(std::vector<std::string> const &vec) {
 	//Range for 
 	for (auto const& i : vec)
 		std::cout << i << ", ";
+}
+
+
+
+void printTree(std::vector<std::string> const &vec) {
+	//Iterator
+	//for (std::vector<std::string>::const_iterator it = vec.cbegin(); it != vec.cend(); ++it)
+		//std::cout << *it << ", ";
+	//Range for 
+	for (auto const& i : vec)
+		std::cout << i << "\n";
 }
 
 /* Method Name: printVecOS

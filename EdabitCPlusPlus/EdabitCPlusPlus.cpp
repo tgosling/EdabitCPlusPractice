@@ -4,6 +4,7 @@
 //Headers
 #include "ChallengesVE.hpp"
 #include "ChallengesEZ.hpp"
+#include "ChallengesMED.hpp"
 #include "printContainer.hpp"
 //Libraries
 #include <iostream>
@@ -19,13 +20,15 @@ int main()
 	float f1 = 0.2;
 	string str1 = "", str2 = "Break free", strPal = "mom";
 	int arr1[] = { 1,2,3 }, arr2[] = { 23,45,67,89 };
-	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 };
+	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 }, runs = { 3,4,1,2 };
 	vector<double> vDbl = { 11.1, 12, 112, 99 };
 	vector<string> fileExt = { "array.html", "marker.exe", "website.css", "oscar.win" };
-
+	
 	//Tests
 	std::cout << "Hello World!" << endl;
-	//VERY EASY
+
+	//Very Easy
+#pragma region VeryEasyChallenges
 	printChar(10, '-');
 	cout << "Edabit Very Easy Challenges";
 	printChar(10, '-');
@@ -49,7 +52,9 @@ int main()
 	cout << "What month the 3rd month? " << monthName(3) << endl;
 	cout << "is there a nubmer higher than 14 in the vector? " << existsHigher(v, 23) << endl;
 	cout << endl;
-
+#pragma endregion
+	//Easy 
+#pragma region EasyChallenges
 	//EASY
 	printChar(10, '-');
 	cout << "Edabit Easy Challenges";
@@ -112,12 +117,35 @@ int main()
 	cout << "\nCartesian coordinates Vector of Vectors:  ";
 	vector<vector<int>> cartVec = convertCartesianVec(v3, v);
 	printCartVec(cartVec);
-	cout << "\nSorted file Extensions: ";
-	
+	cout << "\nSorted names by length: ";
+
 	vector<string> sortedNames;
 	vector<string> namesVec = { "oscar", "mike", "Taylor", "Tom" };
 	sortedNames = sortVecStrByLength(namesVec);
 	printVec(sortedNames);
+#pragma endregion
+	//Medium
+#pragma region MediumChallenges
+	cout << "\n" << endl;
+	printChar(10, '-');
+	cout << "Edabit Medium Challenges";
+	printChar(10, '-');
+	cout << "\nRuns: ";
+	printVec(runs);
+	cout << "\nProgess days: ";
+	int progDays = progressDays(runs);
+	cout << progDays;
+	cout << "How many Letter D in the word Search: ";
+	
+	cout << "\nSmall Tree:\n";
+	vector<string> tree = {};
+	tree = poundTree(3);
+	printTree(tree);
+	cout << "\nMedium Tree:\n";
+	tree = poundTree(6);
+	printTree(tree);
+
+#pragma endregion
 	//END
 	cout << "\n" << endl;
 	printChar(20, '*');

@@ -109,14 +109,6 @@ bool checkPalindrome(std::string str) {
 		return false;
 }
 
-/* Method Name: printChar
-	   Purpose: prints a sequential char 
-	   Accepts: int n, char ch
-	   Returns:	void		*/
-void printChar(int n, char ch){
-	for (int i = 0; i < n; ++i)
-		 std::cout << ch;
-}
 
 /* Method Name: removeVowels
 	   Purpose: remove vowels from a string, Y not included

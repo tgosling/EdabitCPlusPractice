@@ -26,3 +26,53 @@ int progressDays(std::vector<int> runs) {
 	   Purpose: capitalize the first letter in the string and the remaining lowercase 
 	   Accepts: vector<string> vec
 	   Returns:	vector<string>		*/
+std::vector<std::string> capStr(std::vector<std::string> vec) {
+	for (auto str : vec) {
+		std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+		str[0] = ::toupper(str[0]);
+	}
+	return vec;
+}
+
+
+/* Method Name: letterCounter 
+	   Purpose: count the letters in a vector of chars search for provided char 
+	   Accepts: vector<vector<char>> arr, char c
+	   Returns: int */
+int letterCounter(std::vector<std::vector<char>> vec, char c) {
+	int hold = 0;
+	for (auto srch : vec) {
+		for (int i = 0; i < srch.size(); ++i) {
+			if (srch[i] == c) {
+				++hold;
+			}
+		}
+	}
+	return hold;
+}
+
+/* Method Name: poundTree
+ 	   Purpose: print a tree of # based on h
+	   Accepts: int h
+	   Returns:	vector<vector<string>>		*/
+std::vector<std::string> poundTree(int h) {
+	std::vector<std::string> treeHold = {};
+	std::string row;
+	std::string spaces;
+	int width = (h * 2) - 1;
+	if (h == 0) 
+		return treeHold;
+	else {
+		for (int i = 0; i < h; ++i) {
+			spaces = std::string((h / 2) - 1, ' ');
+			row = spaces + std::string(((i + 1) * 2) - 1, '#') + spaces;
+			treeHold.push_back(row);
+		}
+	}
+	return treeHold;
+}
+
+/* Method Name:
+	   Purpose:
+	   Accepts:
+	   Returns:			*/
