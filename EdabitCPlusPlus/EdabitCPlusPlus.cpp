@@ -18,41 +18,48 @@ int main()
 	//Variables for tests
 	int a = 5, b = 4, c = 0;
 	float f1 = 0.2;
-	string str1 = "", str2 = "Break free", strPal = "mom";
+	string str1 = "", str2 = "Break free", strPal = "mom", usrInput;
 	int arr1[] = { 1,2,3 }, arr2[] = { 23,45,67,89 };
 	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 }, runs = { 3,4,1,2 };
 	vector<double> vDbl = { 11.1, 12, 112, 99 };
 	vector<string> fileExt = { "array.html", "marker.exe", "website.css", "oscar.win" };
 	
+	
 	//Tests
 	std::cout << "Hello World!" << endl;
-
-	//Very Easy
+	cout << "Which challenge set would you like to see?" << endl;
+	cout << "1) Very Easy\n2) Easy\n3) Medium \n4) Hard" << endl;
+	cin >> usrInput;
+	if (usrInput == "1" || usrInput == "Very Easy") {
+		//Very Easy
 #pragma region VeryEasyChallenges
-	printChar(10, '-');
-	cout << "Edabit Very Easy Challenges";
-	printChar(10, '-');
+		printChar(10, '-');
+		cout << "Edabit Very Easy Challenges";
+		printChar(10, '-');
 
-	cout << "\nAddition: 5 + 9 = ";	
-	c = addition(a, b);
-	cout << c;
-	cout << "\nIncrement by 1: " << incrementByOne(c) << endl;
-	cout << "the remainder of " << a << " % " << b << "= " << checkRemainder(a, b) << endl;
-	cout << "Count chickens, cows and pigs feet on farm\nChickens=" << a
-		 << "\nCows = " << b << "\nPigs = " << c << "\nTotal Legs: " << animalLegs(a, b, c) << endl;
-	cout << "Is a = " << a << " divisible by 5? " << std::boolalpha << divisbleByFive(a) << endl;
-	cout << "Is b = " << b << " less than or equal to zero? " << std::boolalpha << lessThanOrEqualToZero(b) << endl;
-	cout << "Is it a profitable gamble if the prize is " << 30 << ", but you pay = " << b << " " << std::boolalpha << profitableGamble(f1, 30, a) << endl;
-	cout << "Is 2012/12/22 Christmas Eve? " << timeForMilkandCookies(2012, 12, 22) << endl;
-	cout << "Is str1 empty? str1 contents '" + str1 << "' Empty= " << isEmpty(str1) << "\t\tis str2 empty? str2 contents '" + str2 << "' Empty= " << isEmpty(str2) << endl;
-	cout << "Will there be enough slices of pie if there are 8 people who want 2 slices each with 20 slices? " << std::boolalpha << equalSlices(20, 8, 2) << endl;
-	cout << "Last item in array 'arr1' is " << getLastItem(arr1) << endl;
-	cout << "Last item in array 'arr2' is " << getLastItem(arr2) << endl;
-	cout << "Tyler Gosling concat: " << concatName("Tyler", "Gosling") << endl;
-	cout << "What month the 3rd month? " << monthName(3) << endl;
-	cout << "is there a nubmer higher than 14 in the vector? " << existsHigher(v, 23) << endl;
-	cout << endl;
+		cout << "\nAddition: 5 + 9 = ";
+		c = addition(a, b);
+		cout << c;
+		cout << "\nIncrement by 1: " << incrementByOne(c) << endl;
+		cout << "the remainder of " << a << " % " << b << "= " << checkRemainder(a, b) << endl;
+		cout << "Count chickens, cows and pigs feet on farm\nChickens=" << a
+			<< "\nCows = " << b << "\nPigs = " << c << "\nTotal Legs: " << animalLegs(a, b, c) << endl;
+		cout << "Is a = " << a << " divisible by 5? " << std::boolalpha << divisbleByFive(a) << endl;
+		cout << "Is b = " << b << " less than or equal to zero? " << std::boolalpha << lessThanOrEqualToZero(b) << endl;
+		cout << "Is it a profitable gamble if the prize is " << 30 << ", but you pay = " << b << " " << std::boolalpha << profitableGamble(f1, 30, a) << endl;
+		cout << "Is 2012/12/22 Christmas Eve? " << timeForMilkandCookies(2012, 12, 22) << endl;
+		cout << "Is str1 empty? str1 contents '" + str1 << "' Empty= " << isEmpty(str1) << "\t\tis str2 empty? str2 contents '" + str2 << "' Empty= " << isEmpty(str2) << endl;
+		cout << "Will there be enough slices of pie if there are 8 people who want 2 slices each with 20 slices? " << std::boolalpha << equalSlices(20, 8, 2) << endl;
+		cout << "Last item in array 'arr1' is " << getLastItem(arr1) << endl;
+		cout << "Last item in array 'arr2' is " << getLastItem(arr2) << endl;
+		cout << "Tyler Gosling concat: " << concatName("Tyler", "Gosling") << endl;
+		cout << "What month the 3rd month? " << monthName(3) << endl;
+		cout << "is there a nubmer higher than 14 in the vector? " << existsHigher(v, 23) << endl;
+		cout << endl;
 #pragma endregion
+
+	} 
+	else if(usrInput == "2" || usrInput == "Easy"){
 	//Easy 
 #pragma region EasyChallenges
 	//EASY
@@ -124,28 +131,62 @@ int main()
 	sortedNames = sortVecStrByLength(namesVec);
 	printVec(sortedNames);
 #pragma endregion
-	//Medium
+	} 
+	else if (usrInput == "3" || usrInput == "Medium") {
+		//Medium
 #pragma region MediumChallenges
-	cout << "\n" << endl;
-	printChar(10, '-');
-	cout << "Edabit Medium Challenges";
-	printChar(10, '-');
-	cout << "\nRuns: ";
-	printVec(runs);
-	cout << "\nProgess days: ";
-	int progDays = progressDays(runs);
-	cout << progDays;
-	cout << "How many Letter D in the word Search: ";
-	
-	cout << "\nSmall Tree:\n";
-	vector<string> tree = {};
-	tree = poundTree(3);
-	printTree(tree);
-	cout << "\nMedium Tree:\n";
-	tree = poundTree(6);
-	printTree(tree);
+		cout << "\n\n";
 
+
+		printChar(10, '-');
+		cout << "Edabit Medium Challenges";
+		printChar(10, '-');
+		cout << "\nRuns: ";
+		printVec(runs);
+		cout << "\nProgess days: ";
+		int progDays = progressDays(runs);
+		cout << progDays;
+		cout << "\nHow many Letter D in the word Search: ";
+
+		cout << "\nSmall Tree:\n";
+		vector<string> tree = {};
+		tree = poundTree(3);
+		printTree(tree);
+		cout << "\nMedium Tree:\n";
+		tree = poundTree(6);
+		printTree(tree);
+		vector<double> coins;
+		coins = coinCounter(61, 102, 0, 30, 19);
+		cout << "\nNickels = " << coins[0] << "\nDimes = " << coins[1] << "\nQuarters = " << coins[2] << "\nLoonies = " << coins[3] << "\nToonies = " << coins[4] << endl;
+		cout << "\n" << endl;
+		double coinTotal = 0.0;
+		for (auto var : coins) {
+			coinTotal += var;
+		}
+		cout << "\nCoin Total = " << coinTotal << endl;
+		vector<double> bills;
+		bills = billCounter(36, 0, 5, 0, 0);
+		cout << "\nfives = " << bills[0] << "\nTens = " << bills[1] << "\nTwenties = " << bills[2] << "\nFifties = " << bills[3] << "\nHundos = " << bills[4] << endl;
+		cout << "\n" << endl;
+		double billTotal = 0.0;
+		for (auto var : bills) {
+			billTotal += var;
+		}
+		cout << "\nbill Total = " << billTotal << endl;
+		cout << "\nTotal = " << coinTotal + billTotal << endl;
 #pragma endregion
+	}
+	else if (usrInput == "4" || usrInput == "Hard") {
+	int x[3][4] = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} };
+	int row = 3, col = 4;
+	for (int i = 0; i < row; ++i) {
+		for (int j = 0; j < col; ++j) {
+			cout << "Element[" << i << "][" << j << "]=" << x[i][j] << endl;
+		}
+	}
+		
+	}
+
 	//END
 	cout << "\n" << endl;
 	printChar(20, '*');

@@ -191,8 +191,26 @@ std::string hyphenMaker(int n)
 	   Purpose:
 	   Accepts:
 	   Returns: */
+std::vector<double> coinCounter(int n, int d, int q, int l, int t) {
+	std::vector<double> coinHold = { 0,0,0,0,0 };
+	coinHold[0] = n * 0.05;
+	coinHold[1] = d * 0.10;
+	coinHold[2] = q * 0.25;
+	coinHold[3] = l * 1.00;
+	coinHold[4] = t * 2.00;
+	return coinHold;
+}
 
 
+std::vector<double> billCounter(int f, int t, int tw, int fty, int h) {
+	std::vector<double> billHold = { 0,0,0,0,0 };
+	billHold[0] = f * 5;
+	billHold[1] = t * 10;
+	billHold[2] = tw * 20;
+	billHold[3] = fty * 50;
+	billHold[4] = h * 100;
+	return billHold;
+}
 
 
 
