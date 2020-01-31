@@ -11,16 +11,18 @@
 #include <string>
 #include <vector>
 
+
 using namespace::std;
 
-bool isPalindrome(string str) { 
-	string::iterator end_pos = remove(str.begin(), str.end(), ' ');
-	str.erase(end_pos, str.end());
-	end_pos = remove_if(str.begin(), str.end(), ispunct);
-	str.erase(end_pos, str.end());
-	string hold = str;
+bool isPalindrome(string str) {
+	std::string hold, palCheck;
+	for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
+		if (std::isalpha(*it))
+			hold += ::tolower(*it);
+	}
+	palCheck = hold;
 	reverse(hold.begin(), hold.end());
-	if (str == hold)
+	if (palCheck == hold)
 		return true;
 	else
 		return false;
