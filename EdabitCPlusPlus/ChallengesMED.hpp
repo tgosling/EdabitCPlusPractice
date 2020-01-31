@@ -72,7 +72,20 @@ std::vector<std::string> poundTree(int h) {
 	return treeHold;
 }
 
-/* Method Name:
-	   Purpose:
-	   Accepts:
-	   Returns:			*/
+/* Method Name: isPalindrome
+	   Purpose: checks for palindrome regardless of punctuation and spaces
+	   Accepts: string
+	   Returns:	bool		*/
+bool isPalindrome(string str) {
+	std::string hold, palCheck;
+	for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
+		if (std::isalpha(*it))
+			hold += ::tolower(*it);
+	}
+	palCheck = hold;
+	reverse(hold.begin(), hold.end());
+	if (palCheck == hold)
+		return true;
+	else
+		return false;
+}
