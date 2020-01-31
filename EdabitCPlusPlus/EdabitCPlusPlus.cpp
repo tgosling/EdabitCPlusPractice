@@ -13,6 +13,19 @@
 
 using namespace::std;
 
+bool isPalindrome(string str) { 
+	string::iterator end_pos = remove(str.begin(), str.end(), ' ');
+	str.erase(end_pos, str.end());
+	end_pos = remove_if(str.begin(), str.end(), ispunct);
+	str.erase(end_pos, str.end());
+	string hold = str;
+	reverse(hold.begin(), hold.end());
+	if (str == hold)
+		return true;
+	else
+		return false;
+}
+
 int main()
 {
 	//Variables for tests
@@ -28,7 +41,7 @@ int main()
 	//Tests
 	std::cout << "Hello World!" << endl;
 	cout << "Which challenge set would you like to see?" << endl;
-	cout << "1) Very Easy\n2) Easy\n3) Medium \n4) Hard" << endl;
+	cout << "1) Very Easy\n2) Easy\n3) Medium\n4) Hard" << endl;
 	cin >> usrInput;
 	if (usrInput == "1" || usrInput == "Very Easy") {
 		//Very Easy
@@ -174,6 +187,15 @@ int main()
 		}
 		cout << "\nbill Total = " << billTotal << endl;
 		cout << "\nTotal = " << coinTotal + billTotal << endl;
+
+		//Test Data
+		string pal = "racecar", notPal = "notpal", puncPal = "race,car", spacePal = "a man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!";
+		cout << "\nis racecar is a palindrome? " << boolalpha << isPalindrome(pal) << endl;
+		cout << "is notpal is a palindrome? " << boolalpha << isPalindrome(notPal) << endl;
+		cout << "is race,car is a palindrome? " << boolalpha << isPalindrome(puncPal) << endl;
+		cout << "is race car is a palindrome? " << boolalpha <<  isPalindrome(spacePal) << endl;
+			
+
 #pragma endregion
 	}
 	else if (usrInput == "4" || usrInput == "Hard") {
