@@ -91,6 +91,151 @@ vector<string> getExtension(vector<string>& vec){
 	   Purpose: remove vowels from a string, Y not included
 	   Accepts: string str
 	   Returns:	string		*/
-std::string removeVowels(std::string str) {
-	return std::regex_replace(str, std::regex("[aeiouAEIOU]"), std::string(""));
+string removeVowels(string str) {
+	return regex_replace(str, regex("[aeiouAEIOU]"), string(""));
+}
+
+/* Method Name: leftShift
+	   Purpose: left shift the vector the number of times given
+	   Accepts: vector<int> vec, int num
+	   Returns:	vector<int>		*/
+vector<int> leftShift(vector<int> vec, int num) {
+	for (int i = 0; i < num; i++) {
+		int temp = vec[0];
+		vec.erase(vec.begin());
+		vec.push_back(temp);
+	}
+	return vec;
+}
+
+/* Method Name: rightShift
+	   Purpose: right shift the vector the number of times given
+	   Accepts: vector<int> vec, int num
+	   Returns:	vector<int>		*/
+vector<int> rightShift(vector<int> vec, int num) {
+	for (int i = 0; i < num; i++) {
+		int temp = vec[vec.size() - 1];
+		vec.pop_back();
+		vec.insert(vec.begin(), temp);
+	}
+	return vec;
+}
+
+/* Method Name: formatPhoneNumber
+	   Purpose: format a vector into a phone number string
+	   Accepts: vector<int> vec
+	   Returns: string str			*/
+string formatPhoneNumber(vector<int> vec) {
+	string str;
+	str.reserve(16);
+	for (auto n : vec)
+		str.append(to_string(n));
+	str.insert(0, "(");
+	str.insert(4, ")");
+	str.insert(5, " ");
+	str.insert(9, "-");
+	return str;
+}
+
+/* Method Name: findNemo
+	   Purpose: find the word Nemo in a sentence
+	   Accepts: string sentence
+	   Returns:	string		*/
+string findNemo(string sentence) {
+	//Variables
+	vector<string> words;
+	string word = "";
+	int in = 1;
+	//Find word in sentence and add it to words
+	for (char i : sentence) {
+		if (i == ' ') {
+			words.push_back(word);
+			word = "";
+		}
+		else
+			word += i;
+	}
+	//Check for nemo in words
+	for (string word : words) {
+		if (word == "Nemo")
+			return "I found Nemo at " + to_string(in) + "!";
+		++in;
+	}
+}
+
+/* Method Name: findWord
+	   Purpose: find a given word from a string
+	   Accepts: string word, string sentence
+	   Returns:	vector<string> 		*/
+vector<string> findWord(string word, string sentence) {
+	//variables
+	vector<string> words;
+	string wordHold = "";
+	vector<string> wordFound;
+	int at = 1;
+	//find words in setence
+	for (char i : sentence) {
+		if (i == ' ') {
+			words.push_back(wordHold);
+			wordHold = "";
+		}
+		else
+			wordHold += i;
+	}
+	//check for word in words
+	for (string str : words) {
+		if (str == word)
+			wordFound.push_back("The word, " + word + " was found at " + to_string(at) + "!");
+		at++;
+	}
+	if (wordFound.empty())
+		wordFound.push_back("The word, " + word + " was not found at all");
+	return wordFound;
+}
+
+/* Method Name: convertCartesian
+	   Purpose: convert two vectors into cartesian coordinate pairs
+	   Accepts: vector<int> x, vector<int> y
+	   Returns:	map<int, int>		*/
+map<int, int>  convertCartesian(vector<int> x, vector<int> y) {
+	map<int, int> coords;
+	if (x.size() == y.size()) {
+		for (int i = 0; i < x.size(); ++i) {
+			pair<int, int> cCoord = make_pair(x[i], y[i]);
+			coords.emplace(cCoord);
+		}
+	}
+	else
+		cout << "Vectors do not have the same amout of coordinates\n";
+
+	return coords;
+}
+
+/* Method Name: convertCartesianVec
+	   Purpose: convert two vectors into cartesian coordinate vector of vectors
+	   Accepts: vector<int> x, vector<int> y
+	   Returns: vector<vector<int>>			*/
+vector<vector<int>> convertCartesianVec(vector<int> x, vector<int> y) {
+	vector<vector <int>> hold;
+	for (int i = 0; i < x.size(); ++i) {
+		hold.push_back({ x[i],y[i] });
+	}
+	return hold;
+}
+
+/* Method Name: sortStrBySize
+	   Purpose: to sort two strings by size
+	   Accepts: string a, atring b
+	   Returns:	bool		*/
+bool sortStrBySize(string a, string b) {
+	return a.length() < b.length();
+}
+
+/* Method Name: sortVecStringByLength
+	   Purpose: to sort a vector of strings by length
+	   Accepts: vector<string> vec
+	   Returns:	vector<string>		*/
+vector<string> sortVecStrByLength(vector<string> arr) {
+	sort(arr.begin(), arr.end(), sortStrBySize);
+	return arr;
 }

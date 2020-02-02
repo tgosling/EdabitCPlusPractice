@@ -20,7 +20,7 @@ std::vector<std::string> identicalFilter(std::vector<std::string> arr);
 	   Purpose: divide a string based on N-value
 	   Accepts: string s, int n
 	   Returns: vector<string>      */
-std::vector<std::string> stringPartitionN(std::string s, int n);
+//std::vector<std::string> stringPartitionN(std::string s, int n);
 
 /* Method Name: minMaxLengthAvg
 	   Purpose: determines the minimum value, max value, length of array and average value
@@ -38,7 +38,7 @@ std::vector<std::string> getExtension(std::vector<std::string>& vec);
 	   Purpose: checks to see if a word is the same forward and backward
 	   Accepts: string str
 	   Returns:	bool		*/
-bool checkPalindrome(std::string str);
+//bool checkPalindrome(std::string str);
 
 /* Method Name: removeVowels
 	   Purpose: remove vowels from a string, Y not included

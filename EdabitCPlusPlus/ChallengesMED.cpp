@@ -35,12 +35,10 @@ vector<string> capStr(vector<string> vec) {
 	   Returns: int */
 int letterCounter(vector<vector<char>> vec, char c) {
 	int hold = 0;
-	for (auto srch : vec) {
-		for (int i = 0; i < srch.size(); ++i) {
-			if (srch[i] == c) {
+	for (vector<vector<char>>::iterator it = vec.begin(); it != vec.end(); ++it) {
+		for (vector<char>::iterator itr = it->begin(); itr != it->end(); ++itr)
+			if (*itr == c)
 				++hold;
-			}
-		}
 	}
 	return hold;
 }
@@ -82,4 +80,23 @@ bool isPalindrome(string str) {
 		return true;
 	else
 		return false;
+}
+
+/* Method Name: isOmniPresent
+	   Purpose: checks to see if value is present in every subarray
+	   Accepts: vector<vector<int>>, int
+	   Returns:	bool		*/
+bool isOmniPresent(vector<vector<int>> vec, int omniTest) {
+	bool flag;
+	for (vector<vector<int>>::iterator itRow = vec.begin(); itRow != vec.end(); ++itRow) {
+		flag = false;
+		for (vector<int>::iterator itCol = itRow->begin(); itCol != itRow->end(); ++itCol) {
+			if (*itCol == omniTest) {
+				flag = true;
+			}
+			if (!flag)
+				flag = false;
+		}
+	}
+	return flag;
 }

@@ -21,7 +21,6 @@ int progressDays(std::vector<int> runs);
 	   Returns:	vector<string>		*/
 std::vector<std::string> capStr(std::vector<std::string> vec);
 
-
 /* Method Name: letterCounter 
 	   Purpose: count the letters in a vector of chars search for provided char 
 	   Accepts: vector<vector<char>> arr, char c
@@ -38,4 +37,10 @@ std::vector<std::string> poundTree(int h);
 	   Purpose: checks for palindrome regardless of punctuation and spaces
 	   Accepts: string
 	   Returns:	bool		*/
-bool isPalindrome(string str);
+bool isPalindrome(std::string str);
+
+/* Method Name: isOmniPresent
+	   Purpose: checks to see if value is present in every subarray
+	   Accepts: vector<vector<int>>, int
+	   Returns:	bool		*/
+bool isOmniPresent(std::vector<std::vector<int>> vec, int omniTest)
