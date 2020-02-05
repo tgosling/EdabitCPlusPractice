@@ -2,12 +2,13 @@
 #include <string>
 #include <array>
 #include <vector>
-#include <iostream>
+#include <map>
+#include <math.h>
 #include <algorithm>
 #include <numeric>
 #include <regex>
-#include <map>
 #include <utility>
+#include <iostream>
 
 /* Method Name: progressDays
 	   Purpose: to track the amount of progress days comparing the current run to the previous run
@@ -43,4 +44,16 @@ bool isPalindrome(std::string str);
 	   Purpose: checks to see if value is present in every subarray
 	   Accepts: vector<vector<int>>, int
 	   Returns:	bool		*/
-bool isOmniPresent(std::vector<std::vector<int>> vec, int omniTest)
+bool isOmniPresent(std::vector<std::vector<int>> vec, int omniTest);
+
+/* Method Name: calcMean
+	   Purpose: returns mean value rounded to 2 decimal places
+	   Accepts: vector<int>
+	   Returns:	float		*/
+float calcMean(std::vector<int>& vec);
+
+/* Method Name: validatePIN
+	   Purpose: validates pin to 4 or 6 digits
+	   Accepts: string
+	   Returns:	bool		*/
+bool validatePIN(std::string& pin);

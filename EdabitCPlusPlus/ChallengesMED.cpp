@@ -95,8 +95,32 @@ bool isOmniPresent(vector<vector<int>> vec, int omniTest) {
 				flag = true;
 			}
 			if (!flag)
-				flag = false;
+				return false;
 		}
 	}
-	return flag;
+	return true;
+}
+
+/* Method Name: calcMean
+	   Purpose: returns mean value rounded to 2 decimal places
+	   Accepts: vector<int>
+	   Returns:	float		*/
+float calcMean(vector<int>& vec) {
+	float hold = 0;
+	for (vector<int>::iterator it = vec.begin(); it != vec.end(); ++it) {
+		hold += *it;
+	}
+	hold = (hold / vec.size());
+	float rounded = round(hold * 100.0) / 100.0;
+	return rounded;
+}
+
+/* Method Name: validatePIN
+	   Purpose: validates pin to 4 or 6 digits
+	   Accepts: string
+	   Returns:	bool		*/
+bool validatePIN(string& pin) {
+	if (pin.empty())
+		return false;
+	return regex_match(pin, regex(R"(\d{6}|\d{4})"));
 }
