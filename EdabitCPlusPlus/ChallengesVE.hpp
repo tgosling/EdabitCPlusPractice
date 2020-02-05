@@ -116,3 +116,5 @@ std::vector<double> coinCounter(int n, int d, int q, int l, int t);
 
 
 std::vector<double> billCounter(int f, int t, int tw, int fty, int h);
+
+void ChallengesVE();

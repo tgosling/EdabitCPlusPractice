@@ -99,3 +99,5 @@ bool sortStrBySize(std::string a, std::string b);
 	   Accepts: vector<string> vec
 	   Returns:	vector<string>		*/
 std::vector<std::string> sortVecStrByLength(std::vector<std::string> arr);
+
+void ChallengesEZ();

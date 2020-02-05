@@ -57,3 +57,5 @@ float calcMean(std::vector<int>& vec);
 	   Accepts: string
 	   Returns:	bool		*/
 bool validatePIN(std::string& pin);
+
+void ChallengesMED();

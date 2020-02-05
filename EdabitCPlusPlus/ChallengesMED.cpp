@@ -1,4 +1,5 @@
 #include "ChallengesMED.hpp"
+#include "printContainer.hpp"
 
 using namespace std;
 
@@ -123,4 +124,123 @@ bool validatePIN(string& pin) {
 	if (pin.empty())
 		return false;
 	return regex_match(pin, regex(R"(\d{6}|\d{4})"));
+}
+
+/* Method Name:
+	   Purpose:
+	   Accepts:
+	   Returns: */
+std::vector<double> coinCounter(int n, int d, int q, int l, int t) {
+	std::vector<double> coinHold = { 0,0,0,0,0 };
+	coinHold[0] = n * 0.05;
+	coinHold[1] = d * 0.10;
+	coinHold[2] = q * 0.25;
+	coinHold[3] = l * 1.00;
+	coinHold[4] = t * 2.00;
+	return coinHold;
+}
+
+
+std::vector<double> billCounter(int f, int t, int tw, int fty, int h) {
+	std::vector<double> billHold = { 0,0,0,0,0 };
+	billHold[0] = f * 5;
+	billHold[1] = t * 10;
+	billHold[2] = tw * 20;
+	billHold[3] = fty * 50;
+	billHold[4] = h * 100;
+	return billHold;
+}
+
+void ChallengesMED() {
+	//Medium
+#pragma region MediumChallenges
+	
+	vector<int> runs = { 3,4,1,2 };
+
+	printChar(10, '-');
+	cout << "Edabit Medium Challenges";
+	printChar(10, '-');
+	cout << "\nRuns: ";
+	printVec(runs);
+	cout << "\nProgess days: ";
+	int progDays = progressDays(runs);
+	cout << progDays;
+	cout << "\nHow many Letter D in the word Search: ";
+
+	cout << "\nSmall Tree:\n";
+	vector<string> tree = {};
+	tree = poundTree(3);
+	printTree(tree);
+	cout << "\nMedium Tree:\n";
+	tree = poundTree(6);
+	printTree(tree);
+	vector<double> coins;
+	coins = coinCounter(61, 102, 0, 30, 19);
+	cout << "\nNickels = " << coins[0] << "\nDimes = " << coins[1] << "\nQuarters = " << coins[2] << "\nLoonies = " << coins[3] << "\nToonies = " << coins[4] << endl;
+	cout << "\n" << endl;
+	double coinTotal = 0.0;
+	for (auto var : coins) {
+		coinTotal += var;
+	}
+	cout << "\nCoin Total = " << coinTotal << endl;
+	vector<double> bills;
+	bills = billCounter(36, 0, 5, 0, 0);
+	cout << "\nfives = " << bills[0] << "\nTens = " << bills[1] << "\nTwenties = " << bills[2] << "\nFifties = " << bills[3] << "\nHundos = " << bills[4] << endl;
+	cout << "\n" << endl;
+	double billTotal = 0.0;
+	for (auto var : bills) {
+		billTotal += var;
+	}
+	cout << "\nbill Total = " << billTotal << endl;
+	cout << "\nTotal = " << coinTotal + billTotal << endl;
+
+	//Test Data
+	string pal = "racecar", notPal = "notpal", puncPal = "race,car", spacePal = "a man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!";
+	cout << "\nis racecar is a palindrome? " << boolalpha << isPalindrome(pal) << endl;
+	cout << "is notpal is a palindrome? " << boolalpha << isPalindrome(notPal) << endl;
+	cout << "is race,car is a palindrome? " << boolalpha << isPalindrome(puncPal) << endl;
+	cout << "is a man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama! a palindrome? " << boolalpha << isPalindrome(spacePal) << endl;
+
+	cout << "\nLetter Counter" << endl;
+	printChar(14, '-');
+	vector<vector<char>> vec = {
+		{'A','B','C','D'},
+		{'D','B','H','R'},
+		{'M','X','R','Y'},
+		{'D','B','H','R'},
+		{'M','X','R','Y'},
+		{'A','B','C','D'}
+	};
+
+	char test = 'H';
+	cout << "\n";
+	print2DVec(vec);
+
+	cout << "\nThere are " << letterCounter(vec, test) << " " << test << "'s in the word search" << endl;
+
+	vector<vector<int>> vec1 = {
+		{1,2},
+		{2,3},
+		{2,5},
+		{5,2}
+	};
+	int testI = 2;
+
+	cout << "is 2 omnipresent? " << isOmniPresent(vec1, testI) << endl;
+	cout << "is 9 omnipresent? " << isOmniPresent(vec1, 9) << endl;
+
+	vector<int> vec2 = { 1,1000, 21,18,948,360,285,314,900 };
+	float mean = 0;
+
+	cout << "vector contents: ";
+	printVec(vec2);
+	cout << "\nmean value = " << calcMean(vec2) << endl;
+
+	string pin1 = "1234", pin2 = "a12", pin3 = "124578";
+
+	cout << "pin1 = " << pin1 << "\tvalid? " << validatePIN(pin1) << endl;
+	cout << "pin1 = " << pin2 << "\tvalid? " << validatePIN(pin2) << endl;
+	cout << "pin1 = " << pin3 << "\tvalid? " << validatePIN(pin3) << endl;
+
+#pragma endregion
 }

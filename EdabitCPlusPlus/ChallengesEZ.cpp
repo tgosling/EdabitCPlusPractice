@@ -1,4 +1,5 @@
 #include "ChallengesEZ.hpp"
+#include "printContainer.hpp"
 
 using namespace std;
 
@@ -238,4 +239,80 @@ bool sortStrBySize(string a, string b) {
 vector<string> sortVecStrByLength(vector<string> arr) {
 	sort(arr.begin(), arr.end(), sortStrBySize);
 	return arr;
+}
+
+void ChallengesEZ() {
+#pragma region EasyChallenges
+	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 };
+	vector<double> vDbl = { 11.1, 12, 112, 99 };
+	vector<string> fileExt = { "array.html", "marker.exe", "website.css", "oscar.win" };
+	//EASY
+	printChar(10, '-');
+	cout << "Edabit Easy Challenges";
+	printChar(10, '-');
+	cout << "\nBreak chew up into 2 even groups:\t";
+	//vector<string> stringN = stringPartitionN("chew", 2);
+	//for (vector<string>::const_iterator i = stringN.begin(); i != stringN.end(); ++i)
+	//{
+		//cout << *i << ", ";
+	//}
+	cout << endl;
+	//printVec(vDbl);
+	//printVec(stringN);
+
+	vector<double> minMaxAvgVec = minMaxLengthAvg(vDbl);
+
+	cout << "\nVector contents: " << vDbl << endl;
+	cout << "Vector Min value: " << minMaxAvgVec[0] << endl;
+	cout << "Vector Max value: " << minMaxAvgVec[1] << endl;
+	cout << "Vector length: " << minMaxAvgVec[2] << endl;
+	cout << "Vector Average: " << minMaxAvgVec[3] << endl;
+
+	vector<string> fExtensions = getExtension(fileExt);
+	printVec(fExtensions);
+	//cout << "\nmom is a palindrome: " << checkPalindrome(strPal) << endl;
+	//cout << "megatron is a palindrome: " << checkPalindrome("stepmom") << endl;
+	cout << "megatron without vowels: " << removeVowels("megatron") << endl;
+
+	cout << "\nVector contents " << endl;
+	printVec(v);
+	cout << "\nVector shifted left 3 times: ";
+	v = leftShift(v, 3);
+	printVec(v);
+	cout << "\nVector shifted right 2 times: ";
+	v = rightShift(v, 2);
+	printVec(v);
+
+	cout << "\nPhone Number: " << formatPhoneNumber(phone) << endl;
+	cout << "Is Nemo in this sentence? " << endl;
+	cout << findNemo("Is Nemo in this sentence? ") << endl;
+	cout << "wave check this sentence? " << endl;
+	vector<string> waveCheck;
+	waveCheck = findWord("wave", "wave check this sentence? ");
+	printVec(waveCheck);
+	cout << "\nCheck: This is not a drill This is not a drill " << endl;
+	vector<string> drillCheck;
+	drillCheck = findWord("drill", "This is not a drill This is not a drill ");
+	printVec(drillCheck);
+	cout << "\nCartesian coordinates Map A:  ";
+	map<int, int> mapA = convertCartesian(v, v);
+	//for (auto x : mapA)
+		//cout << "[" << x.first << ", " << x.second << "] ";
+	vector<int> v3 = { 9,2,3,4,5 };
+	printCartMap(mapA);
+	cout << "\nCartesian coordinates Map B:  ";
+	map<int, int> mapB = convertCartesian(v3, v);
+	printCartMap(mapB);
+	//for (auto x : mapB)
+		//cout << "[" << x.first << ", " << x.second << "] ";
+	cout << "\nCartesian coordinates Vector of Vectors:  ";
+	vector<vector<int>> cartVec = convertCartesianVec(v3, v);
+	printCartVec(cartVec);
+	cout << "\nSorted names by length: ";
+
+	vector<string> sortedNames;
+	vector<string> namesVec = { "oscar", "mike", "Taylor", "Tom" };
+	sortedNames = sortVecStrByLength(namesVec);
+	printVec(sortedNames);
+#pragma endregion
 }
