@@ -100,4 +100,8 @@ bool sortStrBySize(std::string a, std::string b);
 	   Returns:	vector<string>		*/
 std::vector<std::string> sortVecStrByLength(std::vector<std::string> arr);
 
+/* Method Name: ChallengesEZ
+	   Purpose: calls the easy challenge functions
+	   Accepts: void
+	   Returns: void	*/
 void ChallengesEZ();

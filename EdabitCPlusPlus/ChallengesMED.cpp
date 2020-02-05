@@ -126,10 +126,10 @@ bool validatePIN(string& pin) {
 	return regex_match(pin, regex(R"(\d{6}|\d{4})"));
 }
 
-/* Method Name:
-	   Purpose:
-	   Accepts:
-	   Returns: */
+/* Method Name: coinCounter
+	   Purpose: counts coins
+	   Accepts: int, int, int, int, int
+	   Returns:	vector<double>	*/
 std::vector<double> coinCounter(int n, int d, int q, int l, int t) {
 	std::vector<double> coinHold = { 0,0,0,0,0 };
 	coinHold[0] = n * 0.05;
@@ -141,6 +141,10 @@ std::vector<double> coinCounter(int n, int d, int q, int l, int t) {
 }
 
 
+/* Method Name: billCounter
+	   Purpose: counts currency in bill form
+	   Accepts: int, int, int, int, int
+	   Returns: vector<double> */
 std::vector<double> billCounter(int f, int t, int tw, int fty, int h) {
 	std::vector<double> billHold = { 0,0,0,0,0 };
 	billHold[0] = f * 5;
@@ -151,6 +155,48 @@ std::vector<double> billCounter(int f, int t, int tw, int fty, int h) {
 	return billHold;
 }
 
+
+/* Method Name: censor
+	   Purpose: censors words in a string that are longer than 4
+	   Accepts: string
+	   Returns: string	*/
+string censor(string str) {
+	//containers to hold separate 
+	vector<string> words;
+	string newWord, newStr;
+	//seperate words
+	for (int i = 0; i < str.length() + 1; ++i) {
+		if (str[i] == ' ' || str[i] == '\0') {
+			words.push_back(newWord);
+			newWord = "";
+		}
+		else {
+			newWord += str[i];
+		}
+	}
+	string s;
+	for (vector<string>::iterator it = words.begin(); it != words.end(); ++it) {
+		if (it->size() > 4) {
+			for (int i = 0; i != it->size(); ++i)
+				s += "*";
+			newStr += s;
+			newStr.append(" ");
+			s.clear();
+		}
+		else {
+			newStr += *it;
+			newStr.append(" ");
+		}
+	}
+	newStr.pop_back();
+	return newStr;
+}
+
+
+/* Method Name: ChallengesMED
+	   Purpose: calls the medium challenge functions
+	   Accepts: void
+	   Returns: void	*/
 void ChallengesMED() {
 	//Medium
 #pragma region MediumChallenges
@@ -165,7 +211,6 @@ void ChallengesMED() {
 	cout << "\nProgess days: ";
 	int progDays = progressDays(runs);
 	cout << progDays;
-	cout << "\nHow many Letter D in the word Search: ";
 
 	cout << "\nSmall Tree:\n";
 	vector<string> tree = {};
@@ -242,5 +287,6 @@ void ChallengesMED() {
 	cout << "pin1 = " << pin2 << "\tvalid? " << validatePIN(pin2) << endl;
 	cout << "pin1 = " << pin3 << "\tvalid? " << validatePIN(pin3) << endl;
 
+	cout << censor("Two plus three is five") << endl;
 #pragma endregion
 }

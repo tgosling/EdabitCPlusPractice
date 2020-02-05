@@ -241,6 +241,10 @@ vector<string> sortVecStrByLength(vector<string> arr) {
 	return arr;
 }
 
+/* Method Name: ChallengesEZ
+	   Purpose: calls the easy challenge functions
+	   Accepts: void
+	   Returns: void	*/
 void ChallengesEZ() {
 #pragma region EasyChallenges
 	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 };
