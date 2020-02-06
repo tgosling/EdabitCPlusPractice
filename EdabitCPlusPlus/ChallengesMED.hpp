@@ -58,4 +58,20 @@ float calcMean(std::vector<int>& vec);
 	   Returns:	bool		*/
 bool validatePIN(std::string& pin);
 
+/* Method Name: censor
+	   Purpose: censors words in a string that are longer than 4
+	   Accepts: string
+	   Returns: string	*/
+std::string censor(std::string str);
+
+/* Method Name: partiallyHide
+	   Purpose: censors words in a string leaving first and last letter in each word
+	   Accepts: string
+	   Returns: string	*/
+std::string partiallyHide(std::string phrase);
+
+/* Method Name: ChallengesMED
+	   Purpose: calls the medium challenge functions
+	   Accepts: void
+	   Returns: void	*/
 void ChallengesMED();

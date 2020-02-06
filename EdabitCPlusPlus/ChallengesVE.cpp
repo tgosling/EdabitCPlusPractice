@@ -174,14 +174,20 @@ std::string hyphenMaker(int n) {
 }
 
 
-
+/* Method Name: ChallengesVE
+	   Purpose: calls the Very Easy challenge functions
+	   Accepts: void
+	   Returns: void	*/
 void ChallengesVE() {
 #pragma region VeryEasyChallenges
 	int a = 5, b = 4, c = 0;
 	float f1 = 0.2;
-	string str1 = "", str2 = "Break free", strPal = "mom", usrInput;
+	string str1 = "", str2 = "Break free", strPal = "mom";
 	int arr1[] = { 1,2,3 }, arr2[] = { 23,45,67,89 };
-	vector<int> v = { 10,12,13,22,1 };
+	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 }, runs = { 3,4,1,2 };
+	vector<double> vDbl = { 11.1, 12, 112, 99 };
+	vector<string> fileExt = { "array.html", "marker.exe", "website.css", "oscar.win" };
+	string usrInput = "";
 
 
 	printChar(10, '-');

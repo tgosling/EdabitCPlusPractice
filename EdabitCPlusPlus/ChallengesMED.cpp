@@ -192,6 +192,39 @@ string censor(string str) {
 	return newStr;
 }
 
+/* Method Name: partiallyHide
+	   Purpose: censors words in a string leaving first and last letter in each word
+	   Accepts: string
+	   Returns: string	*/
+string partiallyHide(string phrase) {
+	vector<string> words;
+	string newWord, newStr, str;
+	//seperate words in string
+	for (string::iterator it = phrase.begin(); it != phrase.end(); ++it) {
+		if (*it == ' ' || *it == '\0') {
+			words.push_back(newWord);
+			newWord = "";
+		}
+		else {
+			newWord += *it;
+		}
+	}
+	//remove middle values
+	for (vector<string>::iterator it = words.begin(); it != words.end(); ++it) {
+		for (string::iterator strIt = it->begin(); strIt != it->end(); ++strIt) {
+			if (strIt == it->begin()) {
+				str += *strIt;
+			}
+			else {
+				str += "-";
+			}
+			newStr += str;
+			newStr.append(" ");
+		}
+	}
+	newStr.pop_back();
+	return newStr;
+}
 
 /* Method Name: ChallengesMED
 	   Purpose: calls the medium challenge functions
@@ -201,7 +234,14 @@ void ChallengesMED() {
 	//Medium
 #pragma region MediumChallenges
 	
-	vector<int> runs = { 3,4,1,2 };
+	int a = 5, b = 4, c = 0;
+	float f1 = 0.2;
+	string str1 = "", str2 = "Break free", strPal = "mom";
+	int arr1[] = { 1,2,3 }, arr2[] = { 23,45,67,89 };
+	vector<int> v = { 10,12,13,22,1 }, phone = { 1,2,3,4,5,6,7,8,9,0 }, runs = { 3,4,1,2 };
+	vector<double> vDbl = { 11.1, 12, 112, 99 };
+	vector<string> fileExt = { "array.html", "marker.exe", "website.css", "oscar.win" };
+	string usrInput = "";
 
 	printChar(10, '-');
 	cout << "Edabit Medium Challenges";
@@ -288,5 +328,6 @@ void ChallengesMED() {
 	cout << "pin1 = " << pin3 << "\tvalid? " << validatePIN(pin3) << endl;
 
 	cout << censor("Two plus three is five") << endl;
+	cout << partiallyHide("Test This String Please") << endl;
 #pragma endregion
 }
