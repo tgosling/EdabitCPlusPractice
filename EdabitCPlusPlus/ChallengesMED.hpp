@@ -9,6 +9,7 @@
 #include <regex>
 #include <utility>
 #include <iostream>
+#include <sstream>
 
 /* Method Name: progressDays
 	   Purpose: to track the amount of progress days comparing the current run to the previous run
@@ -69,6 +70,8 @@ std::string censor(std::string str);
 	   Accepts: string
 	   Returns: string	*/
 std::string partiallyHide(std::string phrase);
+
+std::string removeSpecialCharacters(std::string str);
 
 /* Method Name: ChallengesMED
 	   Purpose: calls the medium challenge functions

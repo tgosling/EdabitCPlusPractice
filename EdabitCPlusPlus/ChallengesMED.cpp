@@ -197,33 +197,13 @@ string censor(string str) {
 	   Accepts: string
 	   Returns: string	*/
 string partiallyHide(string phrase) {
-	vector<string> words;
-	string newWord, newStr, str;
-	//seperate words in string
-	for (string::iterator it = phrase.begin(); it != phrase.end(); ++it) {
-		if (*it == ' ' || *it == '\0') {
-			words.push_back(newWord);
-			newWord = "";
-		}
-		else {
-			newWord += *it;
-		}
-	}
-	//remove middle values
-	for (vector<string>::iterator it = words.begin(); it != words.end(); ++it) {
-		for (string::iterator strIt = it->begin(); strIt != it->end(); ++strIt) {
-			if (strIt == it->begin()) {
-				str += *strIt;
-			}
-			else {
-				str += "-";
-			}
-			newStr += str;
-			newStr.append(" ");
-		}
-	}
-	newStr.pop_back();
-	return newStr;
+	regex r ("\\B[\\w]\\B");
+	return regex_replace(phrase, r, "-");
+}
+
+string removeSpecialCharacters(string str) {
+	regex r("[]\^?.!@#\\\/^&*()<>',|~{\[^}]");
+	return regex_replace(str, r, "");
 }
 
 /* Method Name: ChallengesMED
@@ -329,5 +309,13 @@ void ChallengesMED() {
 
 	cout << censor("Two plus three is five") << endl;
 	cout << partiallyHide("Test This String Please") << endl;
+	cout << partiallyHide("One Two Three Four Five Six") << endl;
+
+	string spec1 = "Question? period. Exclamation! at@ pound# backslash\ slash/ chev^ ast* (bracket)end",
+		spec2 = "[square] {curly} <lesser >Greater colon, apostrophe' ~tilde pipe|";
+
+	cout << removeSpecialCharacters(spec1) << endl;
+	cout << removeSpecialCharacters(spec2) << endl;
+
 #pragma endregion
 }

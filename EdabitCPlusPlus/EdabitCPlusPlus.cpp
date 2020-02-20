@@ -34,10 +34,11 @@ int main()
 	std::cout << "Hello World!" << endl;
 	
 	while (usrInput != "x") {
-		cout << "Which challenge set would you like to see?" << endl;
+		cout << "\nWhich challenge set would you like to see?" << endl;
 		cout << "1) Very Easy\n2) Easy\n3) Medium\n4) Hard\n\nPress 'x' to end" << endl;
 		cout << "\nInput: ";
 		cin >> usrInput;
+		
 		if (usrInput == "1" || usrInput == "Very Easy") {
 			//Very Easy
 			ChallengesVE();
